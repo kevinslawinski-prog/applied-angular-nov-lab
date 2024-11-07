@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { map } from 'rxjs';
 import { BooksListComponent } from './pages/books-list.component';
+import { BooksService } from './services/books.service';
 
 @Component({
   selector: 'app-books',
@@ -13,17 +12,6 @@ import { BooksListComponent } from './pages/books-list.component';
   styles: ``,
 })
 export class BooksComponent {
-  #http = inject(HttpClient);
-  books = toSignal(
-    this.#http
-      .get<{
-        data: {
-          id: string;
-          title: string;
-          author: string;
-          year: number;
-        }[];
-      }>('/api/books')
-      .pipe(map((res) => res.data)),
-  );
+  booksService = inject(BooksService);
+  books = toSignal(this.booksService.getBooks());
 }
