@@ -14,10 +14,10 @@ import { FeatureDirective } from '@shared';
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
-          <li *feature="'wip'"><a routerLink="demos">Demos</a></li>
           <li><a routerLink="banking">Banking</a></li>
           <li><a routerLink="books">Books</a></li>
           <li><a routerLink="counter">Counter</a></li>
+          <li *feature="'wip'"><a routerLink="demos">Demos</a></li>
         </ul>
       </div>
     </div>
