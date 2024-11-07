@@ -7,8 +7,8 @@ import { Book } from '../services/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
   template: `
-    <div class="overflow-x-auto">
-      <h2>Book Database</h2>
+    <div class="overflow-x-auto flex flex-col m-16">
+      <h2>Barnes &amp; Nobel</h2>
       <table class="table table-sm">
         <thead>
           <tr>
@@ -33,7 +33,11 @@ import { Book } from '../services/types';
       </table>
     </div>
   `,
-  styles: ``,
+  styles: `
+    h2 {
+      text-align: center;
+    }
+  `,
 })
 export class BooksListComponent {
   list = input.required<Book[]>();
